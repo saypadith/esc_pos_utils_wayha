@@ -246,7 +246,7 @@ class Barcode {
       throw Exception('Barcode: Wrong data range');
     }
 
-    final regex = RegExp(r'^[A-C][\x00-\x7F]+$');
+    final regex = RegExp(r'^[\x00-\x7F]+$');
     final bool isDataValid = regex.hasMatch(barcodeData.join());
 
     if (!isDataValid) {
