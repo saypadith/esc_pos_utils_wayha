@@ -239,14 +239,14 @@ class Barcode {
   /// {A = QRCode type A
   /// {B = QRCode type B
   /// {C = QRCode type C
-  /// barcodeData ex.: "{A978020137962".split("");
+  /// barcodeData ex.: "A978020137962".split("");
   Barcode.code128(List<dynamic> barcodeData) {
     final k = barcodeData.length;
     if (k < 2) {
       throw Exception('Barcode: Wrong data range');
     }
 
-    final regex = RegExp(r'^\{[A-C][\x00-\x7F]+$');
+    final regex = RegExp(r'^\[A-C][\x00-\x7F]+$');
     final bool isDataValid = regex.hasMatch(barcodeData.join());
 
     if (!isDataValid) {
